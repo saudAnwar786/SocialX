@@ -1,5 +1,6 @@
 package com.example.socialx
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -27,7 +30,12 @@ class MainActivity : AppCompatActivity() {
         mAdapter = NewsAdapter()
         recyclerView.adapter = mAdapter
 
-
+         logout.setOnClickListener {
+             Firebase.auth.signOut()
+             val intent = Intent(this,LoginActivity::class.java)
+             startActivity(intent)
+             finish()
+         }
 
     }
     private fun fetchData(){

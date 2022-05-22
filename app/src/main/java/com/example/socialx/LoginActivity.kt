@@ -37,18 +37,22 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Already Logged in ", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         tvlogingin.setOnClickListener {
             login()
+
         }
         tvsignUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
+            finish()
         }
         tvRedSign.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
+            finish()
         }
         tvsignUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
@@ -75,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,"Logged in ",Toast.LENGTH_SHORT).show()
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
+                finish()
             }else{
                 Toast.makeText(this,"Error in signing in ",Toast.LENGTH_SHORT).show()
             }
